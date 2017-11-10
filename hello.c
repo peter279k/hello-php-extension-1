@@ -8,7 +8,16 @@
 #include "ext/standard/info.h"
 #include "php_hello.h"
 
+PHP_FUNCTION(say_hello)
+{
+    php_printf("Hello World!\r\n");
+}
+
+ZEND_BEGIN_ARG_INFO(arginfo_say_hello, 0)
+ZEND_END_ARG_INFO()
+
 const zend_function_entry hello_functions[] = {
+    PHP_FE(say_hello, arginfo_say_hello)
     PHP_FE_END
 };
 
