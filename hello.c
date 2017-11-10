@@ -10,10 +10,19 @@
 
 PHP_FUNCTION(say_hello)
 {
-    php_printf("Hello World!\r\n");
+    char *who = "World";
+    size_t len = sizeof("World") - 1;
+
+    ZEND_PARSE_PARAMETERS_START(0,1)
+        Z_PARAM_OPTIONAL
+	Z_PARAM_STRING(who,len);
+    ZEND_PARSE_PARAMETERS_END();
+
+    php_printf("Hello %s!\r\n",who);
 }
 
 ZEND_BEGIN_ARG_INFO(arginfo_say_hello, 0)
+    ZEND_ARG_INFO(0,str)
 ZEND_END_ARG_INFO()
 
 const zend_function_entry hello_functions[] = {
