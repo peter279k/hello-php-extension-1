@@ -18,7 +18,7 @@ PHP_MINIT_FUNCTION(hello)
     return SUCCESS;
 }
 
-PHP_RSHUTDOWN_FUNCTION(hello)
+PHP_MSHUTDOWN_FUNCTION(hello)
 {
     /* Here the module is deinitialized */
     return SUCCESS;
@@ -35,6 +35,7 @@ PHP_RINIT_FUNCTION(hello)
 
 PHP_RSHUTDOWN_FUNCTION(hello)
 {
+    /* Here the module is deinitialized for a given request */
     return SUCCESS;
 }
 
@@ -52,7 +53,7 @@ zend_module_entry hello_module_entry = {
     PHP_MINIT(hello), /* PHP_MINIT - Module initialization */
     PHP_MSHUTDOWN(hello), /* PHP_MSHUTDOWN - Module shutdown */
     PHP_RINIT(hello), /* PHP_RINIT - Request initialization */
-    PHP_RSHUTDOWN(helo), /* PHP_RSHUTDOWN - Request shutdown */
+    PHP_RSHUTDOWN(hello), /* PHP_RSHUTDOWN - Request shutdown */
     PHP_MINFO(hello), /* PHP_MINFO - Module info */
     PHP_HELLO_VERSION, /* Version */
     STANDARD_MODULE_PROPERTIES
