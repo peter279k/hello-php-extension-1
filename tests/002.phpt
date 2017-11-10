@@ -1,5 +1,5 @@
 --TEST--
-hello_test1() Basic test
+say_hello() test without parameters
 --SKIPIF--
 <?php
 if (!extension_loaded('hello')) {
@@ -8,10 +8,7 @@ if (!extension_loaded('hello')) {
 ?>
 --FILE--
 <?php 
-$ret = hello_test1();
-
-var_dump($ret);
+say_hello();
 ?>
 --EXPECT--
-The extension hello is loaded and working!
-NULL
+Hello World!

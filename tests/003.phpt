@@ -8,9 +8,7 @@ if (!extension_loaded('hello')) {
 ?>
 --FILE--
 <?php 
-var_dump(hello_test2());
-var_dump(hello_test2('PHP'));
+say_hello('TDC');
 ?>
 --EXPECT--
-string(11) "Hello World"
-string(9) "Hello PHP"
+Hello TDC!
