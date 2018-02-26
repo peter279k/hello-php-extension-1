@@ -13,7 +13,7 @@ PHP_FUNCTION(say_hello)
     char *who = "World";
     size_t len = sizeof("World") - 1;
 
-    ZEND_PARSE_PARAMETERS_START(0,1)
+    ZEND_PARSE_PARAMETERS_START(0,1);
         Z_PARAM_OPTIONAL
 	Z_PARAM_STRING(who,len);
     ZEND_PARSE_PARAMETERS_END();
